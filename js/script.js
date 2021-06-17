@@ -1,6 +1,7 @@
 //div where profile info appears
 const profileInfo = document.querySelector(".overview");
 const username = "katarzyna-kw";
+const org = "challenges-KW";
 //unordered list of repos
 const displayRepos = document.querySelector(".repo-list");
 
@@ -23,6 +24,7 @@ const displayFromProfile = function(data) {
     userInfoDiv.classList.add("user-info");
     userInfoDiv.innerHTML = `<figure><img alt="user avatar" src=${data.avatar_url} /></figure><div><p><strong>Name:</strong> ${data.name}</p><p><strong>Bio:</strong> ${data.bio}</p><p><strong>Location:</strong> ${data.location}</p><p><strong>Number of public repos:</strong> ${data.public_repos}</p></div>`
     profileInfo.append(userInfoDiv);
+    fetchReposFromOrg();
     fetchRepos();
 };
 
@@ -35,6 +37,16 @@ const fetchRepos = async function () {
     displayEachRepo(repoData);
 }
 
+const fetchReposFromOrg = async function () {
+    const orgRepoResponse = await fetch (
+        `https://api.github.com/orgs/${org}/repos?sort=updated&per_page=100`
+    );
+    const orgRepoData = await orgRepoResponse.json();
+
+    console.log("repos from org: ", orgRepoData)
+
+    displayEachRepoFromOrg(orgRepoData);
+}
 
 const displayEachRepo = function (repos) {
     for (const repo of repos) {
@@ -44,3 +56,12 @@ const displayEachRepo = function (repos) {
        displayRepos.append(li);
     }
 };
+
+const displayEachRepoFromOrg = function (orgRepos) {
+    for (const orgRepo of orgRepos) {
+        const orgLi = document.createElement("li");
+        orgLi.classList.add("repo");
+        orgLi.innerHTML = `<h3>${orgRepo.name}</h3>`;
+        displayRepos.append(orgLi);
+    }
+}
