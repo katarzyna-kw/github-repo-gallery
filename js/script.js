@@ -15,8 +15,6 @@ const fetchFromProfile = async function () {
         `https://api.github.com/users/${username}`
     )
     const data = await response.json();
-    // console.log("data: ", data)
-    // console.log("data.name", data.name);
 
     displayFromProfile(data);
 }
@@ -37,7 +35,6 @@ const fetchRepos = async function () {
         `https://api.github.com/users/${username}/repos?sort=created&per_page=100` 
     );
     const repoData = await repoResponse.json(); 
-    // console.log('repoData: ', repoData)
     displayEachRepo(repoData);
 }
 
@@ -53,6 +50,7 @@ const fetchReposFromOrg = async function () {
 }
 
 const displayEachRepo = function (repos) {
+    filterInput.classList.remove("hide");
     for (const repo of repos) {
        const li = document.createElement("li");
        li.classList.add("repo");
@@ -93,8 +91,6 @@ const fetchEachRepoInfo = async function (repoName) {
         languages.push(key);
     }
 
-    console.log("languages array:", languages);
-
     displayEachRepoInfo(eachRepoInfoData, languages);
 };
 
@@ -116,4 +112,19 @@ backButton.addEventListener("click", function () {
     reposSection.classList.remove("hide");
     eachRepoDataSection.classList.add("hide");
     backButton.classList.add("hide");
+});
+
+filterInput.addEventListener("input", function (e) {
+    const searchText = filterInput.value;
+    const repos = document.querySelectorAll(".repo");
+    const lowercaseSearchText = searchText.toLowerCase();
+
+    for (const repo of repos) {
+        const lowerCaseValue = repo.innerText.toLowerCase();
+        if (lowerCaseValue.includes(lowercaseSearchText)) {
+            repo.classList.remove("hide");
+        } else {
+            repo.classList.add("hide");
+        }
+    }
 });
