@@ -344,17 +344,16 @@ section .repo-data {
 }
 
 .neon-mode .button-container {
-    background-color: #1d1218;
+    background-color: #1d1218; 
 }
 
 .neon-mode .view-repos {
     background: #dddddd;
-    color: white;
+    color: black;
 }
 
 .neon-mode .view-repos:hover {
     background-color: #ddb0ff;
-    color: black;
 }
 
 
