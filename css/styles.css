@@ -9,7 +9,7 @@ body {
     margin: 0;
     font-family: "Poppins", sans-serif;
     background-color: #fff;
-    color: #333;
+    color: #1d1218;
     font-size: 16px;
 }
 
@@ -98,7 +98,7 @@ h1 {
 h3 {
     width: 100%;
     text-align: center;
-    color: gray;
+    color: #1d1218;
 }
 
 ul {
@@ -248,6 +248,7 @@ section .repo-data {
     cursor: pointer;
     display: block;
     background: #EFC3E6;
+    border: 1px solid white;
 }
 
 .repo-data .visit:hover {
@@ -263,8 +264,8 @@ section .repo-data {
 .view-repos {
     max-width: 200px;
     margin: 0;
-    background: #EFC3E6;
-    border: none;
+    background: #dddddd;
+    border: 1px solid white;
     padding: 0.75em;
 }
 
@@ -347,7 +348,7 @@ section .repo-data {
 }
 
 .neon-mode .view-repos {
-    background: #b93baf;
+    background: #dddddd;
     color: white;
 }
 
