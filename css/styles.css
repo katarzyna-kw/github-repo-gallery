@@ -40,6 +40,11 @@ body {
 
 .fa-github-alt {
     color: #F0E6EF;
+    margin: 0;
+    padding-bottom: 0;
+    display: flex;
+    align-self: flex-end;
+    font-size: 3.4rem;
 }
 
 img {
@@ -47,19 +52,30 @@ img {
     height: auto;
 }
 
-h1 {
+.logo {
     width: 100%;
     padding: 1em 0.5em;
-    margin: 0;
-    font-size: 3.5em;
+    /* margin: 0; */
     text-align: center;
-    font-family: "Oswald", sans-serif;
+    /* font-family: "Oswald", sans-serif; */
     background-color: #B8BEDD;
     color: #fff;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
+    display: flex;
+    justify-content: center;
 }
+
+.logo-name {
+    font-family: 'Arapey', serif;
+    font-size: 3.6rem;
+    text-transform: lowercase;
+    margin-bottom: 0;
+    margin-top: 30px;
+    padding-left: 1rem;
+    color: #fff;
+  }
 
 .badge {
     height: 80px;
@@ -286,8 +302,12 @@ section .repo-data {
     color: #FBFF12;
 }
 
-.neon-mode h1 {
+.neon-mode .logo {
     background-color: #1d1218;
+    color: #41EAD4;
+}
+
+.neon-mode .logo-name {
     color: #41EAD4;
 }
 
