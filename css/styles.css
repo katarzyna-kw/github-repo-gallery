@@ -7,8 +7,8 @@ body {
     align-items: center;
     justify-content: center;
     margin: 0;
-    font-family: "Open Sans", sans-serif;
-    background-color: #fbf9de;
+    font-family: "Poppins", sans-serif;
+    background-color: #fff;
     color: #333;
     font-size: 16px;
 }
@@ -26,8 +26,20 @@ body {
     width: 300px;
 }
 
+.fa-toggle-on {
+    color: #EFC3E6;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.fa-toggle-off {
+    color: #FBFF12;
+    font-size: 30px;
+    cursor: pointer;
+}
+
 .fa-github-alt {
-    color: #f86d58;
+    color: #F0E6EF;
 }
 
 img {
@@ -42,7 +54,7 @@ h1 {
     font-size: 3.5em;
     text-align: center;
     font-family: "Oswald", sans-serif;
-    background-color: #483978;
+    background-color: #B8BEDD;
     color: #fff;
     text-transform: uppercase;
     border-top-left-radius: 20px;
@@ -52,25 +64,31 @@ h1 {
 .badge {
     height: 80px;
     width: 50px;
-    background-color: grey;
+    background-color: gray;
     z-index: 98;
     margin-bottom: -35px;
     margin-top: 10px;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.circle {
-    width: 20px;
-    height: 20px;
-    background-color: #483978;
+.toggle-container-on {
     border-radius: 100%;
     z-index: 99;
-    align-self: center;
     margin-top: auto;
     margin-bottom: 8px;
 }
+
+.toggle-container-off {
+    border-radius: 100%;
+    z-index: 99;
+    margin-top: auto;
+    margin-bottom: 8px;
+}
+
 
 .github-img {
     width: 45px;
@@ -80,7 +98,7 @@ h1 {
 h3 {
     width: 100%;
     text-align: center;
-    color: #f86d58;
+    color: gray;
 }
 
 ul {
@@ -107,11 +125,12 @@ ul {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    background-color: #483978;
-    color: white;
+    background-color: #B8BEDD;
+    color: #000;
     font-size: 18px;
     padding-bottom: 2em;
 }
+
 
 .user-info figure {
     width: 90%;
@@ -135,25 +154,33 @@ ul {
     width: 100%;
     margin: 0;
     padding: 0;
-    border-bottom: 1px solid #9b8dc9;
+    border-bottom: 1px solid #F0E6EF;
+    padding-top: 19px;
     padding-bottom: 19px;
+}
+
+.user-info div p span {
+    font-family: "Arapey", serif;
+    font-size: 26px;
+    text-transform: lowercase;
+    font-style: italic;
+    font-weight: bold;
+    background-color: #EFC3E6;
+    padding: 2px 20px 2px 20px;
+    margin-right: 4px;
 }
 
 .filter-repos {
     width: 300px;
-<<<<<<< HEAD
-=======
     height: 50px;
->>>>>>> 639c3acf970da2c73823ce92ab92bf45221d296e
     margin-top: 1em;
     padding: 1em;
     margin-bottom: 1em;
-    border: 2px solid #483978;
+    border: 2px solid #B8BEDD;
+    outline: none;
 }
 
-section.repo-data {
-    background-color: #fff;
-    padding: 2em;
+section .repo-data {
     padding-bottom: 1em;
 }
 
@@ -161,7 +188,7 @@ section.repo-data {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    background-color: #fff;
+    background-color: #B8BEDD;
     margin-top: 0;
     padding: 2em;
 }
@@ -177,7 +204,7 @@ section.repo-data {
 .repo-list li {
     width: 90%;
     margin: 1em 0;
-    border: 1px solid #f86d58;
+    border: 1px solid #F0E6EF;
     padding: 0.5em;
 }
 
@@ -188,7 +215,7 @@ section.repo-data {
 }
 
 .repo-list h3:hover {
-    background-color: #eee9ff;
+    background-color: #EFC3E6;
     cursor: pointer;
 }
 
@@ -199,40 +226,138 @@ section.repo-data {
 
 .repo-data {
     width: 100%;
+    background-color: #B8BEDD;
+}
+
+.repo-data div {
+    margin: 0 0 0 5em;
 }
 
 .repo-data h3 {
+    font-size: 24px;
     text-align: left;
+    color: #1d1218;
 }
 
 .repo-data .visit {
     text-decoration: none;
     max-width: 200px;
-    color: #fff;
+    color: black;
     padding: 0.75em;
     margin-top: 2em;
     cursor: pointer;
     display: block;
-    background-color: #483978;
-    border: 1px solid #483978;
+    background: #EFC3E6;
 }
 
 .repo-data .visit:hover {
-    background-color: #2f2550;
-    border: 1px solid #ccc;
+    background-color: #F0E6EF;
 }
 
 .button-container {
     width: 100%;
-    background-color: #fff;
-    padding-left: 2em;
-    padding-bottom: 2em;
+    background-color: #B8BEDD;
+    padding: 1em 0 3em 5em;
 }
 
 .view-repos {
     max-width: 200px;
-    margin-top: 0;
+    margin: 0;
+    background: #EFC3E6;
+    border: none;
+    padding: 0.75em;
 }
+
+.view-repos:hover {
+    background-color: #F0E6EF;
+}
+
+.neon-mode {
+    background-color: #414040;
+    color: #fff;
+  }
+
+.neon-mode .badge {
+      background-color: gray;
+}
+
+.neon-mode .fa-github-alt {
+    color: #FBFF12;
+}
+
+.neon-mode h1 {
+    background-color: #1d1218;
+    color: #41EAD4;
+}
+
+.neon-mode h3 {
+    color: lightgray;
+}
+
+.neon-mode .user-info {
+    background-color: #1d1218;
+}
+
+.neon-mode .user-info div p span {
+    background-color: #b93baf;
+}
+
+.neon-mode .user-info div p {
+    color: #fff;
+}
+
+.neon-mode .user-info div p {
+    border-bottom: 1px solid gray;
+}
+
+.neon-mode .filter-repos {
+    background-color: #1d1218;
+    border: 2px solid #41EAD4;
+    color: #fff;
+}
+
+.neon-mode .repos {
+    background-color: #1d1218;
+}
+
+.neon-mode .repo-list li {
+    border: 1px solid #b93baf;
+}
+
+.neon-mode .repo-list h3:hover {
+    background-color: #ddb0ff;
+    color: #000;
+}
+
+.neon-mode .repo-data {
+    background-color: #1d1218;
+}
+
+.neon-mode .repo-data .visit {
+    color: white;
+    background: #b93baf;
+}
+.neon-mode .repo-data .visit:hover {
+    background-color: #ddb0ff;
+    color: black;
+}
+
+.neon-mode .button-container {
+    background-color: #1d1218;
+}
+
+.neon-mode .view-repos {
+    background: #b93baf;
+    color: white;
+}
+
+.neon-mode .view-repos:hover {
+    background-color: #ddb0ff;
+    color: black;
+}
+
+
+
 
 @media (min-width: 700px) {
     .user-info div {

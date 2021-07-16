@@ -8,6 +8,8 @@ const reposSection = document.querySelector(".repos");
 const eachRepoDataSection = document.querySelector(".repo-data");
 const backButton = document.querySelector(".view-repos");
 const filterInput = document.querySelector(".filter-repos");
+const toggleOn = document.querySelector(".toggle-container-on");
+const toggleOff = document.querySelector(".toggle-container-off");
 
 
 const fetchFromProfile = async function () {
@@ -24,7 +26,7 @@ fetchFromProfile();
 const displayFromProfile = function(data) {
     const userInfoDiv = document.createElement("div");
     userInfoDiv.classList.add("user-info");
-    userInfoDiv.innerHTML = `<figure><img alt="user avatar" src=${data.avatar_url} /></figure><div><p><strong>Name:</strong> ${data.name}</p><p><strong>Bio:</strong> ${data.bio}</p><p><strong>Location:</strong> ${data.location}</p><p><strong>Number of public repos:</strong> ${data.public_repos}</p></div>`
+    userInfoDiv.innerHTML = `<figure><img alt="user avatar" src=${data.avatar_url} /></figure><div><p><span>Name</span> ${data.name}</p><p><span>Bio</span> ${data.bio}</p><p><span>Location</span> ${data.location}</p><p><span>Number of public repos</span> ${data.public_repos}</p></div>`
     profileInfo.append(userInfoDiv);
     fetchReposFromOrg();
     fetchRepos();
@@ -43,8 +45,6 @@ const fetchReposFromOrg = async function () {
         `https://api.github.com/orgs/${org}/repos?sort=created&per_page=100`
     );
     const orgRepoData = await orgRepoResponse.json();
-
-    console.log("repos from org: ", orgRepoData[0])
 
     displayEachRepoFromOrg(orgRepoData);
 }
@@ -92,16 +92,18 @@ const fetchEachRepoInfo = async function (repoName) {
     }
 
     displayEachRepoInfo(eachRepoInfoData, languages);
+
+    console.log("data response: ", eachRepoInfoResponse)
 };
 
 const displayEachRepoInfo = function (eachRepoInfoData, languages) {
     eachRepoDataSection.innerHTML = "";
     const divRepoInfo = document.createElement("div");
-    divRepoInfo.innerHTML = `<h3>Name: ${eachRepoInfoData.name}</h3>
+    divRepoInfo.innerHTML = `<h3>${eachRepoInfoData.name}</h3>
     <p>Description: ${eachRepoInfoData.description}</p>
     <p>Default Branch: ${eachRepoInfoData.default_branch}</p>
     <p>Languages: ${languages.join(", ")}</p>
-    <a class="visit" href="${eachRepoInfoData.html_url}" target="_blank" rel="noreferrer noopener">View Repo on GitHub!</a>`
+    <a class="visit" href="${eachRepoInfoData.html_url}" target="_blank" rel="noreferrer noopener">View Repo on GitHub</a>`
     eachRepoDataSection.append(divRepoInfo);
     eachRepoDataSection.classList.remove("hide");
     reposSection.classList.add("hide");
@@ -117,6 +119,7 @@ backButton.addEventListener("click", function () {
 filterInput.addEventListener("input", function (e) {
     const searchText = filterInput.value;
     const repos = document.querySelectorAll(".repo");
+    const repoData = document.querySelectorAll(".repo-data");
     const lowercaseSearchText = searchText.toLowerCase();
 
     for (const repo of repos) {
@@ -126,5 +129,22 @@ filterInput.addEventListener("input", function (e) {
         } else {
             repo.classList.add("hide");
         }
+    }
+});
+
+const modeButton = document.querySelector(".toggles-container");
+const theme = document.querySelector("body");
+
+modeButton.addEventListener("click", function () {
+    if (theme.classList.contains("neon-mode")) {
+        theme.classList.remove("neon-mode");
+        toggleOff.classList.add("hide");
+        toggleOn.classList.remove("hide");
+    
+    }
+    else {
+        theme.classList.add("neon-mode");
+        toggleOff.classList.remove("hide");
+        toggleOn.classList.add("hide");
     }
 });
