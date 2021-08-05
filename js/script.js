@@ -92,8 +92,6 @@ const fetchEachRepoInfo = async function (repoName) {
     }
 
     displayEachRepoInfo(eachRepoInfoData, languages);
-
-    console.log("data response: ", eachRepoInfoResponse)
 };
 
 const displayEachRepoInfo = function (eachRepoInfoData, languages) {
@@ -122,6 +120,7 @@ filterInput.addEventListener("input", function (e) {
     const repoData = document.querySelectorAll(".repo-data");
     const lowercaseSearchText = searchText.toLowerCase();
 
+
     for (const repo of repos) {
         const lowerCaseValue = repo.innerText.toLowerCase();
         if (lowerCaseValue.includes(lowercaseSearchText)) {
@@ -130,6 +129,7 @@ filterInput.addEventListener("input", function (e) {
             repo.classList.add("hide");
         }
     }
+
 });
 
 const modeButton = document.querySelector(".toggles-container");
