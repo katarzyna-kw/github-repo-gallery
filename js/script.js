@@ -26,7 +26,7 @@ fetchFromProfile();
 const displayFromProfile = function(data) {
     const userInfoDiv = document.createElement("div");
     userInfoDiv.classList.add("user-info");
-    userInfoDiv.innerHTML = `<figure><img alt="user avatar" src=${data.avatar_url} /></figure><div><p><span>Name</span> ${data.name}</p><p><span>Bio</span> ${data.bio}</p><p><span>Location</span> ${data.location}</p><p><span>Number of public repos</span> ${data.public_repos}</p></div>`
+    userInfoDiv.innerHTML = `<figure><img alt="user avatar" src=${data.avatar_url} /></figure><div><p><span>Name</span> ${data.name}</p><p><span>Bio</span> ${data.bio}</p><p><span>Location</span> ${data.location}</p><p><span>Number of repos</span> ${data.public_repos}</p></div>`
     profileInfo.append(userInfoDiv);
     fetchReposFromOrg();
     fetchRepos();

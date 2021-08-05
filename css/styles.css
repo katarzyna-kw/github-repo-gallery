@@ -145,7 +145,7 @@ ul {
     background-color: #B8BEDD;
     color: #000;
     font-size: 18px;
-    padding-bottom: 2em;
+    padding: 0 0 2em 0;
 }
 
 
@@ -160,15 +160,15 @@ ul {
 
 .user-info div {
     display: flex;
-    text-align: center;
     flex-wrap: wrap;
+    justify-content: space-around;
     align-items: center;
     width: 100%;
-    padding-left: 5%;
+    /* padding-left: 5%; */
 }
 
 .user-info div p {
-    width: 100%;
+    width: 90%;
     margin: 0;
     padding: 0;
     border-bottom: 1px solid #F0E6EF;
