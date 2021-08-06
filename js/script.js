@@ -99,29 +99,23 @@ const fetchEachRepoInfo = async function (repoName) {
 const displayEachRepoInfo = function (eachRepoInfoData, languages) {
     eachRepoDataSection.innerHTML = "";
     const divRepoInfo = document.createElement("div");
-    if (`${eachRepoInfoData.name}` === "exercism-js-practice" || "105-practice" || "105-turn_back_time") {
+    if (eachRepoInfoData.homepage==="" ||  eachRepoInfoData.homepage===null) {
         divRepoInfo.innerHTML = `<h3>${eachRepoInfoData.name}</h3>
         <p>Description: ${eachRepoInfoData.description}</p>
         <p>Default Branch: ${eachRepoInfoData.default_branch}</p>
         <p>Languages: ${languages.join(", ")}</p>
         <a class="repo-link" href="${eachRepoInfoData.html_url}" target="_blank" rel="noreferrer noopener">View Repo on GitHub</a>`
-        console.log('no')
-    } else if (`${eachRepoInfoData.homepage}` !== "") {
+
+        console.log('no:',  eachRepoInfoData.homepage)
+    } else {
         divRepoInfo.innerHTML = `<h3>${eachRepoInfoData.name}</h3>
         <p>Description: ${eachRepoInfoData.description}</p>
         <p>Default Branch: ${eachRepoInfoData.default_branch}</p>
         <p>Languages: ${languages.join(", ")}</p>
         <a class="repo-link" href="${eachRepoInfoData.html_url}" target="_blank" rel="noreferrer noopener">View Repo on GitHub</a>
         <a class="live-link" href="${eachRepoInfoData.homepage}" target="_blank" rel="noreferrer noopener">Live Link</a>`
-        console.log("homepage: ", `${eachRepoInfoData.homepage}`)  
-    } else {
-        divRepoInfo.innerHTML = `<h3>${eachRepoInfoData.name}</h3>
-        <p>Description: ${eachRepoInfoData.description}</p>
-        <p>Default Branch: ${eachRepoInfoData.default_branch}</p>
-        <p>Languages: ${languages.join(", ")}</p>
-        <a class="repo-link" href="${eachRepoInfoData.html_url}" target="_blank" rel="noreferrer noopener">View Repo on GitHub</a>`
-        console.log("homepage: ", `${eachRepoInfoData.homepage}`)  
-    }
+        console.log("yes: ", `${eachRepoInfoData.homepage}`)
+    } 
     eachRepoDataSection.append(divRepoInfo);
     eachRepoDataSection.classList.remove("hide");
     reposSection.classList.add("hide");
