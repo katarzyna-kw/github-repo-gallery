@@ -99,7 +99,7 @@ const fetchEachRepoInfo = async function (repoName) {
 const displayEachRepoInfo = function (eachRepoInfoData, languages) {
     eachRepoDataSection.innerHTML = "";
     const divRepoInfo = document.createElement("div");
-    if (`${eachRepoInfoData.homepage}` !== "" || `${eachRepoInfoData.homepage}` === null) {
+    if (`${eachRepoInfoData.homepage}` !== "" || `${eachRepoInfoData.homepage}` !== null) {
         divRepoInfo.innerHTML = `<h3>${eachRepoInfoData.name}</h3>
         <p>Description: ${eachRepoInfoData.description}</p>
         <p>Default Branch: ${eachRepoInfoData.default_branch}</p>
