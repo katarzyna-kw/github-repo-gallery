@@ -242,21 +242,27 @@ section .repo-data {
 }
 
 .repo-data {
+    /* width: 100%; */
     width: 100%;
     background-color: #B8BEDD;
+    display: flex;
+    justify-content: center;
 }
 
 .repo-data div {
-    margin: 0 0 0 5em;
+    margin: 0 0 0 0;
+    width: 100%;
+    padding: 0 1rem 0 1rem;
 }
 
 .repo-data h3 {
     font-size: 24px;
     text-align: left;
     color: #1d1218;
+    display: flex;
 }
 
-.repo-data .visit {
+.repo-data .repo-link {
     text-decoration: none;
     max-width: 200px;
     color: black;
@@ -266,16 +272,35 @@ section .repo-data {
     display: block;
     background: #EFC3E6;
     border: 1px solid white;
+    align-self: center;
 }
 
-.repo-data .visit:hover {
+.repo-data .live-link {
+    text-decoration: none;
+    max-width: 200px;
+    color: black;
+    padding: 0.75em;
+    margin-top: 1em;
+    cursor: pointer;
+    display: block;
+    background: #F0E6EF;
+    border: 1px solid white;
+    align-self: center;
+}
+
+.repo-data .repo-link:hover {
     background-color: #F0E6EF;
+}
+
+.repo-data .live-link:hover {
+    background-color: #dddddd;
 }
 
 .button-container {
     width: 100%;
     background-color: #B8BEDD;
-    padding: 1em 0 3em 5em;
+    padding: 1rem 1rem 1rem 1rem;
+
 }
 
 .view-repos {
@@ -402,12 +427,15 @@ section .repo-data {
     .repo-list li {
         width: 48%;
     }
-}
 
-@media (max-width: 700px) {
-    .user-info div p {
-        margin: 10px;
+    .repo-data div {
+        padding: 0 4rem 0 4rem;
     }
+
+    .button-container {
+        padding: 1rem 4rem 1rem 4rem;
+    }
+    
 }
 
 @media (min-width: 1200px) {

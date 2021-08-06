@@ -6,6 +6,7 @@ const profileInfo = document.querySelector(".overview");
 const displayRepos = document.querySelector(".repo-list");
 const reposSection = document.querySelector(".repos");
 const eachRepoDataSection = document.querySelector(".repo-data");
+const repoLiveLink = document.queryCommandEnabled('.repo-live-link')
 const backButton = document.querySelector(".view-repos");
 const filterInput = document.querySelector(".filter-repos");
 const toggleOn = document.querySelector(".toggle-container-on");
@@ -92,21 +93,35 @@ const fetchEachRepoInfo = async function (repoName) {
     }
 
     displayEachRepoInfo(eachRepoInfoData, languages);
+
 };
 
 const displayEachRepoInfo = function (eachRepoInfoData, languages) {
     eachRepoDataSection.innerHTML = "";
     const divRepoInfo = document.createElement("div");
-    divRepoInfo.innerHTML = `<h3>${eachRepoInfoData.name}</h3>
-    <p>Description: ${eachRepoInfoData.description}</p>
-    <p>Default Branch: ${eachRepoInfoData.default_branch}</p>
-    <p>Languages: ${languages.join(", ")}</p>
-    <a class="visit" href="${eachRepoInfoData.html_url}" target="_blank" rel="noreferrer noopener">View Repo on GitHub</a>`
+    if (`${eachRepoInfoData.homepage}` !== "" || `${eachRepoInfoData.homepage}` === null) {
+        divRepoInfo.innerHTML = `<h3>${eachRepoInfoData.name}</h3>
+        <p>Description: ${eachRepoInfoData.description}</p>
+        <p>Default Branch: ${eachRepoInfoData.default_branch}</p>
+        <p>Languages: ${languages.join(", ")}</p>
+        <a class="repo-link" href="${eachRepoInfoData.html_url}" target="_blank" rel="noreferrer noopener">View Repo on GitHub</a>
+        <a class="live-link" href="${eachRepoInfoData.homepage}" target="_blank" rel="noreferrer noopener">Live Link</a>`
+        console.log("yes")  
+    } else {
+        divRepoInfo.innerHTML = `<h3>${eachRepoInfoData.name}</h3>
+        <p>Description: ${eachRepoInfoData.description}</p>
+        <p>Default Branch: ${eachRepoInfoData.default_branch}</p>
+        <p>Languages: ${languages.join(", ")}</p>
+        <a class="repo-link" href="${eachRepoInfoData.html_url}" target="_blank" rel="noreferrer noopener">View Repo on GitHub</a>`
+        console.log('no')
+    }
     eachRepoDataSection.append(divRepoInfo);
     eachRepoDataSection.classList.remove("hide");
     reposSection.classList.add("hide");
     backButton.classList.remove("hide");
 };
+
+
 
 backButton.addEventListener("click", function () {
     reposSection.classList.remove("hide");
