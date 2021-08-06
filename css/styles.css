@@ -63,10 +63,8 @@ img {
     border-top-right-radius: 20px;
     display: flex;
     flex-flow: column wrap;
-    justify-content: flex-end;
-    align-items: flex-end;
-
-
+    justify-content: center;
+    align-items: center;
 }
 
 .logo-name {
@@ -409,6 +407,7 @@ section .repo-data {
     .logo {
         flex-flow: row wrap;
         justify-content: center;
+        align-items: flex-end;
     }
 
     .logo-name {
