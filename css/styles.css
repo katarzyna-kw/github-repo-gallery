@@ -346,7 +346,7 @@ section .repo-data {
 }
 
 .neon-mode .user-info div p span {
-    background-color: #b93baf;
+    background-color: #87257f;
 }
 
 .neon-mode .user-info div p {
@@ -368,7 +368,7 @@ section .repo-data {
 }
 
 .neon-mode .repo-list li {
-    border: 1px solid #b93baf;
+    border: 1px solid #87257f;
 }
 
 .neon-mode .repo-list h3:hover {
